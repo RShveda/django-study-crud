@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
+from listing.views import SchoolList
 
 app_name = "listing"
 
 urlpatterns = [
-    path('schools', TemplateView.as_view(template_name="listing/schools.html"), name = "schools"),
+    path('schools', SchoolList.as_view(), name = "schools"),
 ]

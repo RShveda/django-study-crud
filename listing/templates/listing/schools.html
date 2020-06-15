@@ -1,6 +1,19 @@
 {% extends "listing/listing_base.html" %}
 
 {% block schools_body %}
-<h1>This is list of schools!</h1>
+<h1>This is a list of schools!</h1>
+{% if school_list %}
+<table>
+  <th>School Name</th>
+  <th>Students #</th>
+  {% for school in school_list %}
+  <tr>
+    <td>{{school.name}}</td>
+    <td>{{school.students_counter}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
 
 {% endblock schools_body %}
