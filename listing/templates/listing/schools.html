@@ -8,7 +8,7 @@
   <th>Students #</th>
   {% for school in school_list %}
   <tr>
-    <td>{{school.name}}</td>
+    <td><a href="schools/{{school.name}}/">{{school.name}}</a></td>
     <td>{{school.students_counter}}</td>
   </tr>
   {% endfor %}

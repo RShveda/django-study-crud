@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
-from listing.views import SchoolList
+from listing.views import SchoolList, SchoolStudentList, StudentDetailView
 
 app_name = "listing"
 
 urlpatterns = [
     path('schools', SchoolList.as_view(), name = "schools"),
+    path('schools/<school>/', SchoolStudentList.as_view(), name = "school"),
+    path('schools/<school>/<student>', StudentDetailView.as_view(), name = "student")
 ]

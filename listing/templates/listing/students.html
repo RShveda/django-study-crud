@@ -1,0 +1,19 @@
+{% extends "listing/listing_base.html" %}
+
+{% block button %}
+  <a href="{% url 'listing:schools' %}"><button type="button" class="btn btn-light btn-sm">Back</button></a>
+{% endblock button %}
+
+{% block schools_body %}
+<h1>This is a list of students for {{school}} school!</h1>
+{% if object_list %}
+<ol>
+  {% for object in object_list %}
+
+  <li><a href="{{object.pk}}">{{object.name}}</a></li>
+  {% endfor %}
+</ol>
+{% endif %}
+
+
+{% endblock schools_body %}
