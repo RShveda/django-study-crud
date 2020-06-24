@@ -7,6 +7,10 @@
 
 {% block schools_body %}
 <h1>This is a list of students for {{school_name}} school!</h1>
+
+<a href="{% url 'listing:update_school' school_name %}" class="btn btn-sm btn-outline-primary">Edit</a>
+<a href="{% url 'listing:delete_school' school_name %}" class="btn btn-sm btn-outline-danger">Delete</a>
+
 {% if object_list %}
 <ol class="list-group">
   {% for object in object_list %}

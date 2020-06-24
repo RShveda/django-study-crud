@@ -51,3 +51,19 @@ class StudentDeleteView(DeleteView):
 class SchoolCreateView(CreateView):
     model = School
     fields = ["name", "location"]
+
+class SchoolUpdateView(UpdateView):
+    model = School
+    fields = ["name", "location"]
+
+    def get_object(self):
+        school_name = self.kwargs["school"]
+        return School.objects.get(name = school_name)
+
+class SchoolDeleteView(DeleteView):
+    model = School
+    success_url = reverse_lazy("listing:schools")
+    
+    def get_object(self):
+        school_name = self.kwargs["school"]
+        return School.objects.get(name = school_name)
