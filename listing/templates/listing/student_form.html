@@ -8,10 +8,11 @@
 {% block schools_body %}
 <h1>Add new student</h1>
 
+
 <form method="post">
   {% csrf_token %}
   {{form.as_p}}
-  <input type="submit" value="Save">
+  <input type="submit" class="btn btn-sm btn-outline-primary" value="Save">
 </form>
 
 

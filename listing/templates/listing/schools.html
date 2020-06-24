@@ -4,19 +4,20 @@
 <h1>This is a list of schools!</h1>
 
 {% if school_list %}
-<table>
+<table class="table table-striped">
   <th>School Name</th>
-  <th>Students #</th>
+  <th>Location</th>
+  <th>Number of Students</th>
   {% for school in school_list %}
   <tr>
     <td><a href="schools/{{school.name}}/">{{school.name}}</a></td>
+    <td>{{school.location}}</td>
     <td>{{school.students_counter}}</td>
   </tr>
   {% endfor %}
 </table>
 {% endif %}
+
 <a href="{% url "listing:create_school" %}" class="btn btn-sm btn-outline-primary">Add new</a>
-
-
 
 {% endblock schools_body %}

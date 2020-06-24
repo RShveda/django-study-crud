@@ -8,15 +8,15 @@
 {% block schools_body %}
 <h1>This is a list of students for {{school_name}} school!</h1>
 {% if object_list %}
-<ol>
+<ol class="list-group">
   {% for object in object_list %}
 
-  <li><a href="{{object.pk}}">{{object.name}}</a></li>
+  <li class="list-group-item"><a href="{{object.pk}}">{{object.name}}</a></li>
   {% endfor %}
 
 </ol>
 {% endif %}
+<li class="list-group-item"><a href="{% url 'listing:create_student' school_name %}" class="btn btn-sm btn-outline-primary">Add new</a></li>
 
-<a href="{% url 'listing:create_student' school_name %}" class="btn btn-sm btn-outline-primary">Add new</a>
 
 {% endblock schools_body %}

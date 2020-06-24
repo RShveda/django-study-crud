@@ -11,12 +11,17 @@
 <h1>This is a student page!</h1>
 
 {% if object %}
-<ol>
-  <li>Name: {{object.name}}</li>
-</ol>
+
+<div class="card">
+  <div class="card-body">
+      Student Name: {{object.name}}
+  </div>
+</div>
+<br>
 
 <a href="{% url 'listing:update_student' object.school object.pk %}" class="btn btn-sm btn-outline-primary">Edit</a>
 <a href="{% url 'listing:delete_student' object.school object.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+
 {% endif %}
 
 
