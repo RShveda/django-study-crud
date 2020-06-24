@@ -1,0 +1,18 @@
+{% extends "listing/listing_base.html" %}
+
+{% block button %}
+  {{ view.kwargs }}
+  <a href="{% url 'listing:student' school student %}"><button type="button" class="btn btn-light btn-sm">Back</button></a>
+{% endblock button %}
+
+{% block schools_body %}
+<h1>Add new student</h1>
+
+<form method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <input type="submit" value="Update">
+</form>
+
+
+{% endblock schools_body %}

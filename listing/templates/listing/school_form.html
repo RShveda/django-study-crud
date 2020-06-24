@@ -1,0 +1,17 @@
+{% extends "listing/listing_base.html" %}
+
+{% block button %}
+  <a href="{% url "listing:schools" %}"><button type="button" class="btn btn-light btn-sm">Back</button></a>
+{% endblock button %}
+
+{% block schools_body %}
+<h1>Add new school</h1>
+
+<form method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <input type="submit" value="Save">
+</form>
+
+
+{% endblock schools_body %}

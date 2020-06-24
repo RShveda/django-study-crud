@@ -1,19 +1,22 @@
 {% extends "listing/listing_base.html" %}
 
+
 {% block button %}
   <a href="{% url 'listing:schools' %}"><button type="button" class="btn btn-light btn-sm">Back</button></a>
 {% endblock button %}
 
 {% block schools_body %}
-<h1>This is a list of students for {{school}} school!</h1>
+<h1>This is a list of students for {{school_name}} school!</h1>
 {% if object_list %}
 <ol>
   {% for object in object_list %}
 
   <li><a href="{{object.pk}}">{{object.name}}</a></li>
   {% endfor %}
+
 </ol>
 {% endif %}
 
+<a href="{% url 'listing:create_student' school_name %}" class="btn btn-sm btn-outline-primary">Add new</a>
 
 {% endblock schools_body %}

@@ -2,6 +2,7 @@
 
 {% block schools_body %}
 <h1>This is a list of schools!</h1>
+
 {% if school_list %}
 <table>
   <th>School Name</th>
@@ -14,6 +15,8 @@
   {% endfor %}
 </table>
 {% endif %}
+<a href="{% url "listing:create_school" %}" class="btn btn-sm btn-outline-primary">Add new</a>
+
 
 
 {% endblock schools_body %}
