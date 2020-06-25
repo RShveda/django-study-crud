@@ -1,5 +1,15 @@
 {% extends "base.html" %}
 {% block body %}
-<h1>This is homepage!</h1>
-
+<h1></h1>
+<p></p>
+<p></p>
+<div class="jumbotron">
+  <h1 class="display-4">Welcome to my demo project!</h1>
+  <p class="lead">The purpose of this application was to practice CRUD operations by using Django generic CBVs.</p>
+  <hr class="my-4">
+  <p>As a user you can access list of schools and see number of students by each of the schools. It is possible to create a new school and add new students to it. Also you can edit/delete students and schools, and re-assign students to a different school. Press button below to navigate to Schools page.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="{% url "listing:schools" %}" role="button">Schools</a>
+  </p>
+</div>
 {% endblock body %}

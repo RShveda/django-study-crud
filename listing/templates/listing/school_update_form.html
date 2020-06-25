@@ -1,18 +1,25 @@
 {% extends "listing/listing_base.html" %}
 
 {% block button %}
-  {{ view.kwargs }}
   <a href="{% url 'listing:school' school %}"><button type="button" class="btn btn-light btn-sm">Back</button></a>
 {% endblock button %}
 
 {% block schools_body %}
-<h1>Add new student</h1>
+
+<h1>Edit School</h1>
 
 <form method="post">
   {% csrf_token %}
   {{form.as_p}}
-  <input type="submit" value="Update">
+  <input type="submit" class="btn btn-sm btn-outline-primary" value="Update">
 </form>
+<br>
+<p>
+  Wish do delete the school?
+  <a href="{% url 'listing:delete_school' school %}" class="btn btn-sm btn-outline-danger">Delete</a>
+</p>
+
+
 
 
 {% endblock schools_body %}

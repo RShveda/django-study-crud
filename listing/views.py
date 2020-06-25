@@ -40,6 +40,7 @@ class StudentCreateView(CreateView):
 class StudentUpdateView(UpdateView):
     model = Student
     fields = ["name", "school"]
+    template_name_suffix = '_update_form'
     pk_url_kwarg = "student"
 
 class StudentDeleteView(DeleteView):
@@ -54,6 +55,7 @@ class SchoolCreateView(CreateView):
 
 class SchoolUpdateView(UpdateView):
     model = School
+    template_name_suffix = '_update_form'
     fields = ["name", "location"]
 
     def get_object(self):
@@ -63,7 +65,7 @@ class SchoolUpdateView(UpdateView):
 class SchoolDeleteView(DeleteView):
     model = School
     success_url = reverse_lazy("listing:schools")
-    
+
     def get_object(self):
         school_name = self.kwargs["school"]
         return School.objects.get(name = school_name)

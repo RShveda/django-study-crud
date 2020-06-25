@@ -16,6 +16,8 @@
   </tr>
   {% endfor %}
 </table>
+{% else %}
+<p>Nothing is here yet. Press button below to create a new school.</p>
 {% endif %}
 
 <a href="{% url "listing:create_school" %}" class="btn btn-sm btn-outline-primary">Add new</a>
