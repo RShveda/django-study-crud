@@ -11,12 +11,22 @@ class SchoolList(ListView):
     model = School
     template_name="listing/schools.html"
 
+class StudentList(ListView):
+    model = Student
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['schools'] = School.objects.all()
+        return context
+
 class SchoolStudentList(ListView):
     template_name="listing/students.html"
 
     def get_queryset(self):
         self.school_name = get_object_or_404(School, name = self.kwargs['school'])
-        return Student.objects.filter(school = self.school_name)
+        return self.school_name.students.all()
+        # return Student.objects.filter(school = self.school_name)
+
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

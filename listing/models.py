@@ -15,7 +15,7 @@ class School(models.Model):
 
 class Student(models.Model):
     name = models.CharField(max_length=40)
-    school = models.ForeignKey(School, on_delete = models.CASCADE)
+    school = models.ForeignKey(School, on_delete = models.CASCADE, related_name = "students")
 
     def save(self, *args, **kwargs):
         ## increment students counter for this particular school
@@ -25,7 +25,7 @@ class Student(models.Model):
         super().save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):
-        ## increment students counter for this particular school
+        ## update students counter for this particular school
         a = self.school
         a.students_counter = len(Student.objects.filter(school = a)) - 1
         a.save()

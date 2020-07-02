@@ -1,6 +1,7 @@
 {% extends "listing/listing_base.html" %}
 
 {% block button %}
+
   <a href="{% url 'listing:student' view.kwargs.school view.kwargs.student %}"><button type="button" class="btn btn-light btn-sm">Back</button></a>
 {% endblock button %}
 

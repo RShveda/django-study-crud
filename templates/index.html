@@ -7,7 +7,16 @@
   <h1 class="display-4">Welcome to my demo project!</h1>
   <p class="lead">The purpose of this application was to practice CRUD operations by using Django generic CBVs.</p>
   <hr class="my-4">
+  <h3>Things I have learned:</h3>
+  <ul>
+    <li>Generic display views: DetailView and ListView.</li>
+    <li>Generic editing views: CreateView, UpdateView, DeleteView.</li>
+    <li>Customizing generic view methods: adding context data, customizing queryset, capturing self.kwargs from URLconf, etc.</li>
+    <li>Customizing model methods: save, delete.</li>
+    <li>Adding convenient navigation between pages using <strong>url</strong> template teg with args.</li>
+  </ul>
   <p>As a user you can access list of schools and see number of students by each of the schools. It is possible to create a new school and add new students to it. Also you can edit/delete students and schools, and re-assign students to a different school. Press button below to navigate to Schools page.</p>
+
   <p class="lead">
     <a class="btn btn-primary btn-lg" href="{% url "listing:schools" %}" role="button">Schools</a>
   </p>

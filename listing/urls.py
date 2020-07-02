@@ -16,11 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
-from listing.views import SchoolList, SchoolStudentList, StudentDetailView, StudentCreateView, StudentUpdateView, SchoolCreateView, StudentDeleteView, SchoolUpdateView, SchoolDeleteView
+from listing.views import (SchoolList, StudentList, SchoolStudentList,
+                            StudentDetailView, StudentCreateView,
+                            StudentUpdateView, SchoolCreateView,
+                            StudentDeleteView, SchoolUpdateView,
+                            SchoolDeleteView)
 
 app_name = "listing"
 
 urlpatterns = [
+    path('students', StudentList.as_view(), name = "student_list"),
     path('schools', SchoolList.as_view(), name = "schools"),
     path('schools/<school>/', SchoolStudentList.as_view(), name = "school"),
     path('schools/school_form', SchoolCreateView.as_view(), name = "create_school"),
